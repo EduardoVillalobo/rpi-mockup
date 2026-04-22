@@ -1,0 +1,105 @@
+import { useEffect, useState } from 'react'
+import { LayoutDashboard, FileText, Settings, File, Library } from 'lucide-react'
+
+function Sidebar() {
+  const [activePath, setActivePath] = useState('')
+
+  useEffect(() => {
+    // Actualizar activePath cada vez que cambia la ruta
+    const handlePathChange = () => {
+      setActivePath(window.location.pathname)
+    }
+
+    // Establecer la ruta inicial
+    handlePathChange()
+
+    // Escuchar cambios en la URL
+    window.addEventListener('popstate', handlePathChange)
+
+    return () => {
+      window.removeEventListener('popstate', handlePathChange)
+    }
+  }, [])
+
+  const menuItems = [
+    { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', badge: 0 },
+    { icon: Library, label: 'Folio Digital', path: '/folio' },
+    { icon: File, label: 'Visor 360', path: '/visor-360' },
+    { icon: FileText, label: 'Mis Prácticas', path: '/practices' },
+    { icon: Settings, label: 'Configuración', path: '/settings' },
+  ]
+
+  const getIconColor = (path: string): string => {
+    if (path === activePath) return 'text-white'
+    return 'text-rpi-gray'
+  }
+
+  const getBgColor = (path: string): string => {
+    if (path === activePath) return 'bg-gradient-to-r from-rpi-blue to-blue-700 text-white shadow-lg shadow-blue-900/20'
+    return 'bg-rpi-gray/10 text-gray-700 group-hover:bg-rpi-gray/20 group-hover:text-gray-900'
+  }
+
+  const isActive = (path: string) => path === activePath
+
+  return (
+    <aside className="w-64 bg-white border-r border-rpi-gray/20 flex-shrink-0 print:hidden">
+      {/* Header del Sidebar */}
+      <div className="p-5 border-b border-rpi-gray/100">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-10 h-10 bg-gradient-to-br from-rpi-blue to-blue-700 rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/20">
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h-1m-1 4h-1m-1-12h-1m2-12h2a2 2 0 012 2v2m4 0v2m4 0v2m-6-4h2m0 0h2m-2 0h-5m-2 2h16m-16 0a1 1 0 01-1-1V5a1 1 0 011-1h14a1 1 0 011 1v4a1 1 0 01-1 1z" />
+            </svg>
+          </div>
+          <div>
+            <h2 className="text-base font-bold text-gray-900">RPI Catamarca</h2>
+            <p className="text-xs text-rpi-gray/60">Gestión Registral</p>
+          </div>
+        </div>
+        <p className="text-xs text-rpi-gray/50 ml-1">Sistema de Prácticas de Laboratorio</p>
+      </div>
+
+      {/* Navegación */}
+      <nav className="p-3">
+        <div className="space-y-1">
+          {menuItems.map((item) => (
+            <a
+              key={item.path}
+              href={item.path}
+              className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${
+                item.path === '/dashboard' ? 'shadow-sm' : ''
+              } ${getBgColor(item.path)}`}
+            >
+              <div className="flex items-center gap-3 flex-1">
+                <div className={`p-1.5 rounded-lg transition-colors ${
+                  isActive(item.path) ? getBgColor(item.path) : ''
+                }`}>
+                  <item.icon className={`w-5 h-5 ${getIconColor(item.path)} transition-colors`} />
+                </div>
+                <span className={`text-sm font-medium ${isActive(item.path) ? 'text-white' : 'text-gray-700 group-hover:text-gray-900'} transition-colors`}>
+                  {item.label}
+                </span>
+              </div>
+              {item.badge && item.badge > 0 && (
+                <span className="px-2 py-0.5 bg-red-500 text-white text-xs font-semibold rounded-full shadow-sm">
+                  {item.badge}
+                </span>
+              )}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      {/* Footer del Sidebar */}
+      <div className="p-4 border-t border-rpi-gray/100 bg-rpi-gray/20">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+          <p className="text-xs text-rpi-gray/70">Sistema operativo</p>
+        </div>
+        <p className="text-xs text-rpi-gray/50 mt-2 text-center">v1.0.0</p>
+      </div>
+    </aside>
+  )
+}
+
+export default Sidebar
