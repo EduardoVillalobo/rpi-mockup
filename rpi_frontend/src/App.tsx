@@ -6,6 +6,8 @@ import Visor360 from './components/Visor360'
 import FolioDigital from './components/FolioDigital'
 import Practices from './components/Practices'
 import Settings from './components/Settings'
+import WorkflowFolio from './components/WorkflowFolio'
+import MesaEntrada from './components/MesaEntrada'
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
               <Route path="/folio" element={<FolioDigital />} />
               <Route path="/practices" element={<Practices />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/workflow" element={<WorkflowFolio />} />
+              <Route path="/mesa-entrada" element={<MesaEntrada />} />
             </Routes>
           </main>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LayoutDashboard, FileText, Settings, File, Library } from 'lucide-react'
+import { LayoutDashboard, FileText, Settings, File, Library, ArrowRight, FileCheck2 } from 'lucide-react'
 
 function Sidebar() {
   const [activePath, setActivePath] = useState('')
@@ -25,7 +25,9 @@ function Sidebar() {
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', badge: 0 },
     { icon: Library, label: 'Folio Digital', path: '/folio' },
     { icon: File, label: 'Visor 360', path: '/visor-360' },
-    { icon: FileText, label: 'Mis Prácticas', path: '/practices' },
+    { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },
+    { icon: FileText, label: 'Mesa de Entradas', path: '/mesa-entrada' },
+    { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
     { icon: Settings, label: 'Configuración', path: '/settings' },
   ]
 
