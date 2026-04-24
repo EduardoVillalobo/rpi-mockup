@@ -9,6 +9,7 @@ import Practices from './components/Practices'
 import Settings from './components/Settings'
 import WorkflowFolio from './components/WorkflowFolio'
 import MesaEntrada from './components/MesaEntrada'
+import Archivo from './components/Archivo'
 import NuevoTramite from './components/nuevoTramite'
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/workflow" element={<WorkflowFolio />} />
               <Route path="/mesa-entrada" element={<MesaEntrada />} />
+              <Route path="/archivo" element={<Archivo />} />
               <Route
                 path="/nuevo-tramite"
                 element={
