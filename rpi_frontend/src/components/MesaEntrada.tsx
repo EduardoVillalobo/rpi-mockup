@@ -223,8 +223,11 @@ const MesaEntrada: React.FC = () => {
               )}
             </div>
 
-            {/* Botón Crear Nuevo */}
-            <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2">
+            {/* Botón Crear Nuevo - Navega a la vista de nuevo trámite */}
+            <button
+              onClick={() => (window.location.href = '/nuevo-tramite')}
+              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2"
+            >
               <Plus className="w-5 h-5" />
               <span className="hidden sm:inline">Crear Nuevo Trámite</span>
             </button>

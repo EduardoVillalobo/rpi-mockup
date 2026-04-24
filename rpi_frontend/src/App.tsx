@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { useState } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
@@ -8,8 +9,18 @@ import Practices from './components/Practices'
 import Settings from './components/Settings'
 import WorkflowFolio from './components/WorkflowFolio'
 import MesaEntrada from './components/MesaEntrada'
+import NuevoTramite from './components/nuevoTramite'
 
 function App() {
+  const handleCancelTramite = () => {
+    window.location.href = '/mesa-entrada'
+  }
+
+  const handleSubmitTramite = (datos: any) => {
+    console.log('Trámite creado:', datos)
+    window.location.href = '/mesa-entrada'
+  }
+
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-gray-50">
@@ -26,6 +37,16 @@ function App() {
               <Route path="/settings" element={<Settings />} />
               <Route path="/workflow" element={<WorkflowFolio />} />
               <Route path="/mesa-entrada" element={<MesaEntrada />} />
+              <Route
+                path="/nuevo-tramite"
+                element={
+                  <NuevoTramite
+                    onCancel={handleCancelTramite}
+                    onSubmit={handleSubmitTramite}
+                  />
+                }
+              />
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </main>
         </div>
