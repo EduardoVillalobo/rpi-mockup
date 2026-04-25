@@ -27,6 +27,7 @@ function Sidebar() {
     { icon: FileText, label: 'Mesa de Entradas', path: '/mesa-entrada' },
     { icon: Archive, label: 'Archivo', path: '/archivo' },
     { icon: Library, label: 'Folio Digital', path: '/folio' },
+    { icon: FileCheck, label: 'División Folios', path: '/division' },
     { icon: File, label: 'Visor Folio', path: '/visor-360' },
     { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },    
     { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
