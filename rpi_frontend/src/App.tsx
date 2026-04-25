@@ -28,7 +28,7 @@ function App() {
         <Header />
         <div className="flex min-h-screen">
           <Sidebar />
-          <main className="flex-1 p-6">
+          <main className="flex-1">
             <Routes>
               <Route path="/" element={<div className="text-gray-500">Dashboard</div>} />
               <Route path="/dashboard" element={<Dashboard />} />
