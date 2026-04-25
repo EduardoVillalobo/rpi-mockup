@@ -718,20 +718,18 @@ const DivisionFolio: React.FC = () => {
           </div>
         </footer>
 
-        {/* Modal de Detalle */}
-        {selectedTramite && (
-          <ModalDetalle
-            tramite={selectedTramite}
-            onClose={handleCloseModal}
-            onGuardar={handleGuardar}
-          />
-        )}
       </div>
     )
   }
 
-  // Si hay trámite seleccionado, mostrar modal
-  return null
+  // Si hay trámite seleccionado, mostrar solo el modal
+  return (
+    <ModalDetalle
+      tramite={selectedTramite}
+      onClose={handleCloseModal}
+      onGuardar={handleGuardar}
+    />
+  )
 }
 
 export default DivisionFolio
