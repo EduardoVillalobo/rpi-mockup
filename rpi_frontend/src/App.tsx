@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useState } from 'react'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import Dashboard from './components/Dashboard'
@@ -10,6 +9,7 @@ import Settings from './components/Settings'
 import WorkflowFolio from './components/WorkflowFolio'
 import MesaEntrada from './components/MesaEntrada'
 import Archivo from './components/Archivo'
+import DivisionFolio from './components/DivisionFolio'
 import NuevoTramite from './components/nuevoTramite'
 
 function App() {
@@ -39,6 +39,7 @@ function App() {
               <Route path="/workflow" element={<WorkflowFolio />} />
               <Route path="/mesa-entrada" element={<MesaEntrada />} />
               <Route path="/archivo" element={<Archivo />} />
+              <Route path="/division" element={<DivisionFolio />} />
               <Route
                 path="/nuevo-tramite"
                 element={

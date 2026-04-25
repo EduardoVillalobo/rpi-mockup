@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LayoutDashboard, FileText, Settings, File, Library, ArrowRight, FileCheck2, Archive } from 'lucide-react'
+import { LayoutDashboard, FileText, Settings, File, Library, ArrowRight, FileCheck2, Archive, FileCheck } from 'lucide-react'
 
 function Sidebar() {
   const [activePath, setActivePath] = useState('')
@@ -28,6 +28,7 @@ function Sidebar() {
     { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },
     { icon: FileText, label: 'Mesa de Entradas', path: '/mesa-entrada' },
     { icon: Archive, label: 'Archivo', path: '/archivo' },
+    { icon: FileCheck, label: 'División Folios', path: '/division' },
     { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
     { icon: Settings, label: 'Configuración', path: '/settings' },
   ]
