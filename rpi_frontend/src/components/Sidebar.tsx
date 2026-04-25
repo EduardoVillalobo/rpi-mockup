@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { LayoutDashboard, FileText, Settings, File, Library, ArrowRight, FileCheck2, Archive } from 'lucide-react'
+import logo from '../assets/rp-Logo-nuevo.png'
 
 function Sidebar() {
   const [activePath, setActivePath] = useState('')
@@ -23,11 +24,11 @@ function Sidebar() {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', badge: 0 },
-    { icon: Library, label: 'Folio Digital', path: '/folio' },
-    { icon: File, label: 'Visor 360', path: '/visor-360' },
-    { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },
     { icon: FileText, label: 'Mesa de Entradas', path: '/mesa-entrada' },
     { icon: Archive, label: 'Archivo', path: '/archivo' },
+    { icon: Library, label: 'Folio Digital', path: '/folio' },
+    { icon: File, label: 'Visor Folio', path: '/visor-360' },
+    { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },    
     { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
     { icon: Settings, label: 'Configuración', path: '/settings' },
   ]
@@ -49,17 +50,16 @@ function Sidebar() {
       {/* Header del Sidebar */}
       <div className="p-5 border-b border-rpi-gray/100">
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-rpi-blue to-blue-700 rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/20">
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h-1m-1 4h-1m-1-12h-1m2-12h2a2 2 0 012 2v2m4 0v2m4 0v2m-6-4h2m0 0h2m-2 0h-5m-2 2h16m-16 0a1 1 0 01-1-1V5a1 1 0 011-1h14a1 1 0 011 1v4a1 1 0 01-1 1z" />
-            </svg>
+          <div className="w-10 h-10 bg-gradient-to-br  rounded-xl flex items-center justify-center shadow-lg shadow-blue-900/20">
+            {/* Colocar imagen institucional de src/assets/rp-Logo-nuevo.png */}
+            <img src={logo} alt="RPI Logo" className="w-6 h-6 object-contain" />
           </div>
           <div>
             <h2 className="text-base font-bold text-gray-900">RPI Catamarca</h2>
             <p className="text-xs text-rpi-gray/60">Gestión Registral</p>
           </div>
         </div>
-        <p className="text-xs text-rpi-gray/50 ml-1">Sistema de Prácticas de Laboratorio</p>
+        <p className="text-xs text-rpi-gray/50 ml-1">Sistema de Folio Digital</p>
       </div>
 
       {/* Navegación */}
