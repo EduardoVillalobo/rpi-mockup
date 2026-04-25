@@ -26,13 +26,9 @@ function Sidebar() {
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', badge: 0 },
     { icon: FileText, label: 'Mesa de Entradas', path: '/mesa-entrada' },
     { icon: Archive, label: 'Archivo', path: '/archivo' },
-<<<<<<< HEAD
-    { icon: FileCheck, label: 'División Folios', path: '/division' },
-=======
     { icon: Library, label: 'Folio Digital', path: '/folio' },
     { icon: File, label: 'Visor Folio', path: '/visor-360' },
     { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },    
->>>>>>> 9d13dfaf94a6952fccd9f5db78a4cedc72686a40
     { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
     { icon: Settings, label: 'Configuración', path: '/settings' },
   ]
