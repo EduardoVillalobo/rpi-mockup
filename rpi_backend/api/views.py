@@ -1,42 +1,7 @@
+import json
+import os
+
 from django.http import JsonResponse
-
-
-# Datos hardcodeados de folios
-FOLIOS_DATA = {
-    "AB123CD": {
-        "matricula": "AB123CD",
-        "departamento": "Departamento Centro",
-        "estado": "Jalisco",
-        "asientos": [
-            {
-                "rubro": "Compraventa",
-                "fecha": "2024-01-15",
-                "titular": "Juan Pérez",
-                "porcentaje": 100
-            },
-            {
-                "rubro": "Constitución de Hipoteca",
-                "fecha": "2024-02-20",
-                "titular": "Banco Nacional",
-                "porcentaje": 75
-            }
-        ]
-    },
-    "EF456GH": {
-        "matricula": "EF456GH",
-        "departamento": "Departamento Norte",
-        "estado": "Nuevo León",
-        "asientos": [
-            {
-                "rubro": "Permuta",
-                "fecha": "2024-03-10",
-                "titular": "María Gómez",
-                "porcentaje": 50
-            }
-        ]
-    }
-}
-
 
 # Datos hardcodeados de trámites
 TRAMITES_DATA = [
@@ -82,18 +47,33 @@ TRAMITES_DATA = [
     }
 ]
 
-
 def get_folio(request, matricula):
-    """Endpoint para obtener un folio por matrícula"""
-    folio = FOLIOS_DATA.get(matricula)
+    """Endpoint para obtener un folio por matrícula desde archivo JSON
 
-    if folio:
+    Busca el archivo api/mock_data/folio_<matricula>.json y lo devuelve.
+    Si el archivo no existe, devuelve error 404.
+    """
+    # Construir ruta del archivo
+    base_path = os.path.join(os.path.dirname(__file__), 'mock_data')
+    file_path = os.path.join(base_path, f'folio_{matricula}.json')
+    
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            folio = json.load(f)
+        
         return JsonResponse(folio)
-    else:
+
+    except FileNotFoundError:
         return JsonResponse({
             "error": "Folio no encontrado",
             "matricula": matricula
         }, status=404)
+
+    except json.JSONDecodeError:
+        return JsonResponse({
+            "error": "Error al leer el archivo del folio",
+            "matricula": matricula
+        }, status=500)
 
 
 def get_tramites(request):

@@ -1,0 +1,52 @@
+{
+    "archivo": "fre5.pdf",
+    "matricula": "3.049",
+    "departamento_nombre": "TINOGASTA",
+    "antecedente_dominio": "MFR 3.0260",
+    "nomenclatura": {
+        "departamento": "15",
+        "distrito": "21",
+        "seccion": "44",
+        "parcela": "7931",
+        "manzana": ""
+    },
+    "titulares_dni": [
+        "27083562140",
+        "27039115757",
+        "27047102656"
+    ],
+    "titularidad_dominio": [
+        {
+            "texto": "BRIZUELA DE CERDA, Amelia -arg.-CUIL-LC nº 27-03911575-7 - casada\nen 1º nupcias c/ Ramiro Cerda Rodriguez.-\nBRIZUELA DE SELEME, Sara Lía arg.-CUIL-LC nº 27-04710265-6 -casada\nen 1° nupcias c/ Julio Cesar Seleme.-\nADJUDICACION - En los autos “ Brizuela Marcelo Francisco - Sucesorio expte\nn° 1135/65 - Juzgado de 1º Inst. CyC de 3° Nominación”. Pres. el 22.12.89 .-\nOrden n° 549.-(Vuelco).-\nTOMA DE RAZÓN DE PLANO DE MENSURAS, SUBDIVISIÓN Y\nLOTEO. E.P. n° 363, de fecha 19.06.03- Esc. Lía G. Alvarez de Castro.- Pres.\nel 04-07-03. Orden n° 6578. Inscripta con fecha 19-06-03. -NB-JCM.-",
+            "proporcion": "50",
+            "tipo_procedimiento": "Toma de Razón"
+        },
+        {
+            "texto": "INSTITUTO PROVINCIAL DE LA VIVIENDA - con domicilio legal en\nAvenida Guemes N° 530 de esta ciudad.-\nCOMPRA VENTA- $ 70.986,37.- TRACTO ABREVIADO: En el mismo acto\nHORMICAT SA compra y vende. E.P. nº 364, de fecha 19.06.03..- Esc. Lía G.\nAlvarez de Castro-Pres. el .04.07.03.. - Orden N° 6579.-Inscripta con fecha\n19.06.03.-NB-JCM.-",
+            "proporcion": "50",
+            "tipo_procedimiento": "Compra-Venta"
+        },
+        {
+            "texto": "HELGUERO, Celia, - arg.- CUIL-DNI n° 27-08356214-0 - viuda.-\nCOMPRA VENTA- $26.904,78.- E.P. nº 237, de fecha 09.12.04- COMPLE-\nMENTARIA: E.P. n° 46, de fecha 07.03.05- Esc. María Lis Infante de Casen-\nPres. el 28.04.05 - Orden N° Orden n° 4260.- Inscripta con fecha 28.04.05---",
+            "proporcion": "------------",
+            "tipo_procedimiento": "Compra-Venta"
+        }
+    ],
+    "superficiario": [],
+    "gravamenes": [
+        {
+            "texto": "HIPOTECA en 1 º GRADO- CON CLÁUSULA DE\nINEMBARGABILIDAD.-\nMonto: $ 26.904,78.- Acreedor: INSTITUTO PROVINCIAL\nDE LA VIVIENDA - E.P. nº 237, de fecha 09.12.04 -COM-\nPLEMENTARIA: E.P. n° 46, de fecha 07.03.05- Esc. María Lis\nInfante de Casen-Pres. el 28.04.05 - Orden N° Orden n° 4260.-\nInscripta con fecha 28.04.05- AR.-",
+            "tipo_procedimiento": "Hipoteca"
+        }
+    ],
+    "cancelaciones": [],
+    "observaciones": [
+        "Se tomó Razón de E.P. n°\n344, del 30.06.05 RECTIFI-\nCATORIA de E.P. n° 237/04-\nPres. el 11.08.05-Orden n°\n9352.-"
+    ],
+    "certificados": [
+        {
+            "texto": "P/VENTA. Esc. María Lis I.\nde Casen.Cert. nº2559 de fe-\ncha 9-12-04.--------------------\nCert. nº 2559-09-12-04Venta\ne Hipoteca. Conste.------------",
+            "tipo_procedimiento": "Compra-Venta"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "archivo": "fre8.pdf",
+    "matricula": "57.255",
+    "departamento_nombre": "CAPITAL",
+    "antecedente_dominio": "MFR N º36.242",
+    "nomenclatura": {
+        "departamento": "07",
+        "distrito": "25",
+        "seccion": "43",
+        "parcela": "0411",
+        "manzana": ""
+    },
+    "titulares_dni": [],
+    "titularidad_dominio": [
+        {
+            "texto": "1- INSTITUTO PROVINCIAL DE LA VIVIENDA-Expte N° 288-88-Autos:\nEstado Provincial c/ Rasjido Ignacio Cecilio y otros-Expropiación-Juzgado de l°\nInstancia en lo Civil y Comercial de 2° TOMA DE RAZON DE PLANO -\nPres.23.09.03-Orden n° 10010-AM- Inscripta con fecha el 23.09.03-.\nTOMA DE RAZÓN DE PLANO DE SUBDIVISIÓN EN BASA A PLANO\nREGISTRADO : ac O.D. Nº 20200228085946.- INSCRIPCIÓN PROVISO-\nRÍA POR EL TERMINO DE 180 DIAS-",
+            "proporcion": "100",
+            "tipo_procedimiento": "Expropiación"
+        },
+        {
+            "texto": "INSCRIPCIÓN DEFINITIVA DE TOMA DE RAZÓN DE PLANO DE\nSUBDIVISIÓN.- Orden n° 20200619103405.- AP.-",
+            "proporcion": "",
+            "tipo_procedimiento": "Toma de Razón"
+        }
+    ],
+    "superficiario": [],
+    "gravamenes": [],
+    "cancelaciones": [],
+    "observaciones": [
+        "Conste: 1.-.La Insc. Definiti-\nva de TRP efectuada e im-\npresa bajo OD N°\n20200619103405 no fue\ngrabada en el sistema oportu\nnamente, procediéndose a\ngrabar con fecha 05-05-2022\n2.- La Fecha de Apertura del\npte. Folio es el día 12-03-2020\n.- OD N° 20220120114501- ae",
+        "Le Correspondió al IPV por\nAcuerdo Transaccional del\n01.10.96, Resoluc. Directorio\nIPV N° 0270 del 07.10.96 y\nSent. Homologatoria N° 337\ndel 03.10.96 e Interlocutorias\nN° 401 del 12.10.99 y N° 381\ndel 04.12.02, recaídas en\nautos: “Estado Provincial c/\nRasgido Ignacio Cecilio y\nOtros - Expropiación” Expte.\nN° 288/98 Juzg. Civ. Y Com.\nDe 2da. Nominac. .- OD\n202205058122008-ME"
+    ],
+    "certificados": [
+        {
+            "texto": "1-P/VENTA E HIPOTECA-\nEsc.Stella M. Saadi-Cert. N°\n1663 de fecha 13-1-2020- -\nTrámite N°20201113094310\nPR-------------------------------\n2-P/ COMPRA-VENTA. Esc.\nROMINA ROJAS. Cert. nº2671.\nDe fecha 13/10/2025. Tramite nº\n20251013133143-PR.",
+            "tipo_procedimiento": "Compra-Venta"
+        }
+    ]
+}

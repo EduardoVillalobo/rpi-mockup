@@ -1,0 +1,2 @@
+- [Visor360.tsx](../rpi_frontend/src/components/Visor360.tsx) — Componente de visualización de asientos registrales — **Corregido**: La interfaz TypeScript ahora usa `Document` (no `folioData`) con propiedades reales: `matricula`, `nomenclatura`, `titularidad_dominio`, `superficiario`, `gravamenes`, `cancelaciones`, `observaciones` (string|array), `certificados`. Eliminado getters obsoletos como `getRubroLabel`.
+- [views.py](views.py) — API para endpoints de folios y trámites — Funciona con archivos JSON en `mock_data/`.

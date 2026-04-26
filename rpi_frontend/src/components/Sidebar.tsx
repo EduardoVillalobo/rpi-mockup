@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
-import { LayoutDashboard, FileText, Settings, File, Library, ArrowRight, FileCheck2, Archive, FileCheck } from 'lucide-react'
+import { LayoutDashboard, FileText, Settings, File, Library, ArrowRight, FileCheck2, Archive, FileCheck, LogOut, ScanText } from 'lucide-react'
 import logo from '../assets/rp-Logo-nuevo.png'
 
-function Sidebar() {
+interface SidebarProps {
+  onLogout?: () => void
+}
+
+function Sidebar({ onLogout }: SidebarProps) {
   const [activePath, setActivePath] = useState('')
 
   useEffect(() => {
@@ -27,9 +31,10 @@ function Sidebar() {
     { icon: FileText, label: 'Mesa de Entradas', path: '/mesa-entrada' },
     { icon: Archive, label: 'Archivo', path: '/archivo' },
     { icon: Library, label: 'Folio Digital', path: '/folio' },
+    { icon: ScanText, label: 'Digitalización de Folio', path: '/digitalizacion' },
     { icon: FileCheck, label: 'División Folios', path: '/division' },
     { icon: File, label: 'Visor Folio', path: '/visor-360' },
-    { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },    
+    { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },
     { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
     { icon: Settings, label: 'Configuración', path: '/settings' },
   ]
@@ -101,6 +106,15 @@ function Sidebar() {
           <p className="text-xs text-rpi-gray/70">Sistema operativo</p>
         </div>
         <p className="text-xs text-rpi-gray/50 mt-2 text-center">v1.0.0</p>
+        {onLogout && (
+          <button
+            onClick={onLogout}
+            className="mt-3 w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-rpi-blue hover:bg-red-50 hover:text-red-600 transition-colors"
+          >
+            <LogOut className="w-4 h-4" />
+            Cerrar Sesión
+          </button>
+        )}
       </div>
     </aside>
   )

@@ -1,6 +1,11 @@
+import { LogOut } from 'lucide-react'
 import logo from '../assets/rp-Logo-nuevo.png'
 
-function Header() {
+interface HeaderProps {
+  onLogout?: () => void
+}
+
+function Header({ onLogout }: HeaderProps) {
   return (
     <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white shadow-lg border-b border-blue-800/30 sticky top-0 z-50 backdrop-blur-lg bg-opacity-95">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,6 +23,15 @@ function Header() {
               <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
               <span className="text-xs font-medium text-emerald-200">Sistema Online</span>
             </div>
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="flex items-center gap-2 px-3 py-1.5 bg-red-500/20 rounded-lg border border-red-500/30 hover:bg-red-500/30 transition-colors"
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="text-xs font-medium text-red-200">Salir</span>
+              </button>
+            )}
           </div>
           <div className="md:hidden flex items-center gap-2">
             <button className="p-2 hover:bg-blue-800/50 rounded-lg transition-colors">

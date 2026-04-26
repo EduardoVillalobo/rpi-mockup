@@ -1,0 +1,61 @@
+{
+    "archivo": "fre4.pdf",
+    "matricula": "2.596",
+    "departamento_nombre": "ANDALGALA",
+    "antecedente_dominio": "101/1990",
+    "nomenclatura": {
+        "departamento": "03",
+        "distrito": "",
+        "seccion": "",
+        "parcela": "",
+        "manzana": ""
+    },
+    "titulares_dni": [
+        "23147086369"
+    ],
+    "titularidad_dominio": [
+        {
+            "texto": "1- WAIDATT, David - LE. n° 6.702.835 - casado .-\nC OMPRA VENTA- A5.000.000 .- E.P. nº71 , de fecha 09-08-1990- Esc. Teresa\ndel V. H. de Vega(Tit. Reg. Not. 13)-Pres. el 27-08-1990 - Orden N°4182.-\nINSCRIPTA CON FECHA 09-08-1990.-",
+            "proporcion": "100",
+            "tipo_procedimiento": "Compra-Venta"
+        },
+        {
+            "texto": "2- WAIDATT, Oscar Edgardo - arg.- CUIT- DNI n°23-14708636-9 - casado\nc/Claudia B. Rojano, domiciliados en calle Belgrano s/nº de la ciudad de\nAndalgalá, Pro. De Ctca.-\nCOMPRA VENTA- $100.000 .- E.P. nº 116, de fecha 02-10-10- Esc.Teresa del\nV. H. de Vega(Tit. Reg. Not. 13) - Pres. el 07-10-10 - Orden N°12330 .-TC.-\nINSCRIPTA CON FECHA 02-10-10.-",
+            "proporcion": "100",
+            "tipo_procedimiento": "Compra-Venta"
+        }
+    ],
+    "superficiario": [],
+    "gravamenes": [
+        {
+            "texto": "HIPOTECA en 1 º GRADO.-\nMonto: $ 1.298.000.- Acreedor: BANCO DE LA NACIÓN\nARGENTINA . CUIT: 30-50001091-2, Domiciliado en calle San\nMartín nº 770de la Ciudad de Andalgala, Prov Catamarca.- E.P.\nnº 2, de fecha 16-01-14-- - Esc. Teresa del V. H. de Vega (Tit.\nReg. 13, Ctca.) - Orden nº 20140123111806.- B.S. INSCRIPTA\nCON FECHA 16-01-14.-",
+            "tipo_procedimiento": "Hipoteca"
+        },
+        {
+            "texto": "2- HIPOTECA EN 2º GRADO CON CLAUSULA DE\nACTUALIZACIÓN\nMonto : $ 2.000.000,00- Sujeto a las Unidades de Valor\nAdquisitivo Actualizables por CER. - Ley 25.827 (UVas) -\nAcreedor: BANCO DE LA NACIÓN ARGENTINA - CUIT Nº\n30-50001091-2, con domicilio legal en calle San Martin nº 770 -\nDpto. Andalgala - Prov. de Ctca.- E.P. nº 01, de fecha 05-01-18-\nEsc. Teresa del V. H. De Vega (Tit..Reg. Nº 13 - Ctca.) -Orden\nn° 20180116110040- NB.-",
+            "tipo_procedimiento": "Hipoteca"
+        },
+        {
+            "texto": "3- HIPOTECA EN 3 º LUGAR Y GRADO DE\nPRIVILEGIO.-\nMonto: $ 3.000.000.- Acreedor: BANCO DE LA NACIÓN",
+            "tipo_procedimiento": "Hipoteca"
+        }
+    ],
+    "cancelaciones": [],
+    "observaciones": [
+        "S/C.C. N° 105208 utilizado\nen E.P. N° 17/25, también\nlinda al Norte : Padrón\n2453, 2454 y 263 - Orden\nN° 20250207091809 -\nCNA.-"
+    ],
+    "certificados": [
+        {
+            "texto": "1-P/HIPOTECA1º-Esc. Te-\nresa H.deVega-Cert.Nº 3.885\nde fecha 17-12-13-Por\nDRPIM.Nº 51/13, se Amplía\nvalidez de Cert., por 10 (diez)\ndías más.-Pres. el 17-12-\n2013-123349-------------------\n2-P/HIPOTECA2º-Esc. Te-\nresa H.deVega-Cert.Nº 3.166\nde fecha 21.12.17- Tramite\nNº 20171221104458. YP ---",
+            "tipo_procedimiento": "Desconocido"
+        },
+        {
+            "texto": "3.-P/HIPOTECA 2°. Esc.\nSilvia A. Moya. Cert. N°\n1283, de fecha 28.09.20. Tra-\nmite n° 20200928113749.\nCMA-TO",
+            "tipo_procedimiento": "Hipoteca"
+        },
+        {
+            "texto": "4.-P/HIPOTECA. Esc. Silvia\nA. Moya. Cert. N° 325, de\nfecha 08.03.21. Tramite n°\n20210308125243. CMA\n---------------------",
+            "tipo_procedimiento": "Hipoteca"
+        }
+    ]
+}
