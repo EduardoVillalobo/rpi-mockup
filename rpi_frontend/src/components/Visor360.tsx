@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FileText, RotateCw, Upload, Percent, Building2, Calendar, CheckCircle2 } from 'lucide-react'
+import { FileText, Search, ArrowDownToDot, Percent, Building2, Calendar, CheckCircle2, FileBadge, FileDigit, Plus } from 'lucide-react'
 
 type Nomenclatura = {
   departamento?: string
@@ -82,21 +82,66 @@ export default function Visor360() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50/30">
       <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4 mb-6">
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            {/* Input de Búsqueda */}
+            <div className="relative flex-1 w-full md:w-auto">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2">
+                <Search className="w-5 h-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                placeholder="Buscar por ID o Matrícula..."
+                className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+              />
+              {
+                <button
+                  onClick={() => setSearchTerm('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              }
+            </div>
+
+            {/* Botón Crear Nuevo - Navega a la vista de nuevo trámite */}
+            <button
+              onClick={() => alert('Navegar a búsqueda de folio digitalizado')}
+              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2"
+            >
+              <Plus className="w-5 h-5" />
+              <span className="hidden sm:inline">Buscar Folio digitalizado</span>
+            </button>
+          </div>
+        </div>
         {/* Header principal */}
         <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-t-2xl shadow-inner print:hidden">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
-              <RotateCw className="w-7 h-7 text-white/80" />
+              <FileBadge className="w-7 h-7 text-white/80" />              
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight">Visor 360°</h1>
-              <p className="text-blue-100/80 text-sm">Visualización de asientos registrales</p>
+              <h1 className="text-2xl font-bold tracking-tight">Visor Folio Digital</h1>
+              <p className="text-blue-100/80 text-sm">Visualización de información registral</p>
             </div>
           </div>
 
           <div className="hidden lg:flex items-center gap-2 text-sm text-blue-100/70">
-            <Upload className="w-4 h-4" />
-            <span>Cargar otro documento</span>
+          
+            <ArrowDownToDot className="w-4 h-4" />
+            <span>Ver otro documento</span>
           </div>
         </div>
 
@@ -218,11 +263,11 @@ export default function Visor360() {
               <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-lg shadow-inner mb-6 print:hidden">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                    <RotateCw className="w-7 h-7 text-white/80" />
+                  <FileDigit className="w-7 h-7 text-white/80"/>
                   </div>
                   <div>
-                    <h2 className="text-xl font-bold">Documentación del Inmueble</h2>
-                    <p className="text-blue-100/70 text-sm">Registro de la propiedad - {folioData?.matricula || '88000'}</p>
+                    <h2 className="text-xl font-bold">MATRICULA {folioData?.matricula || 'XXXXXX'}</h2>
+                    <p className="text-blue-100/70 text-sm">Antecedente de Dominio: {folioData?.antecedente_dominio}</p>
                   </div>
                 </div>
 
@@ -236,47 +281,97 @@ export default function Visor360() {
 
               {/* Lista de asientos */}
               {folioData?.titularidad_dominio?.map((asiento, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-xl shadow-sm border border-rpi-gray/20 overflow-hidden hover:border-rpi-blue/30 hover:shadow-md transition-all duration-200 group mb-4 print:shadow-none print:border-rpi-gray/100"
-                >
-                  <div className="p-5">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-8 h-8 bg-gradient-to-br from-rpi-blue/10 to-blue-500/10 rounded-lg flex items-center justify-center group-hover:from-rpi-blue/20 group-hover:to-blue-500/20 transition-colors">
-                        <span className="text-xs font-bold text-rpi-blue">#{index + 1}</span>
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-sm font-semibold text-gray-900">{asiento?.texto || asiento.tipo_procedimiento || 'Asiento registral'}</p>
-                        <p className="text-xs text-rpi-gray/600">{asiento?.tipo_procedimiento || asiento?.texto?.substring(0, 50) || 'Asiento'}</p>
-                      </div>
+                <div key={index} className="relative max-w-4xl mx-auto my-12 font-sans">
+                  <div
+                    className="absolute -top-6 right-8 z-50 flex items-center bg-white border border-slate-300 shadow-xl rounded-lg p-1.5 gap-1">
+
+                    <div className="group relative">
+                      <button className="p-2 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-md transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                        </svg>
+                      </button>
+                      <span
+                        className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-slate-800 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
+                        Editar Asiento
+                      </span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
-                      {/* Proporción */}
-                      <div className="space-y-2">
-                        <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Proporción</label>
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <Percent className="w-4 h-4 text-rpi-blue" />
-                            <span className="text-lg font-bold text-rpi-blue">{asiento?.proporcion || '100%'}</span>
-                          </div>
+                    <div className="w-px h-6 bg-slate-200 mx-1"></div>
+
+                    <div className="group relative">
+                      <button className="p-2 hover:bg-green-100 text-slate-600 hover:text-green-700 rounded-md transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                      </button>
+                      <span
+                        className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-slate-800 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
+                        Asentar en Folio
+                      </span>
+                    </div>
+
+                    <div className="w-px h-6 bg-slate-200 mx-1"></div>
+
+                    <div className="group relative">
+                      <button className="p-2 hover:bg-red-100 text-slate-600 hover:text-red-600 rounded-md transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                          stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                      </button>
+                      <span
+                        className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-red-600 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
+                        Eliminar Registro
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white rounded-[2rem] shadow-lg border border-slate-200 overflow-hidden py-5">
+                    <div className="p-5">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-8 bg-gradient-to-br from-rpi-blue/10 to-blue-500/10 rounded-lg flex items-center justify-center group-hover:from-rpi-blue/20 group-hover:to-blue-500/20 transition-colors">
+                          <span className="text-xs font-bold text-rpi-blue">#{index + 1}</span>
                         </div>
-                        <div className="w-full bg-gradient-to-r from-rpi-gray/30 to-rpi-gray/20 rounded-full h-2 overflow-hidden">
-                          <div className="bg-gradient-to-r from-rpi-blue to-blue-600 h-2 rounded-full transition-all shadow-inner" style={{ width: '100%' }}></div>
+                        <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100 flex-1">
+                          <p className="text-sm text-slate-700 leading-relaxed">{asiento?.texto || asiento.tipo_procedimiento || 'Asiento registral'}</p>
+                          <p className="text-xs text-rpi-gray/600">{asiento?.tipo_procedimiento || asiento?.texto?.substring(0, 50) || 'Asiento'}</p>
                         </div>
                       </div>
 
-                      {/* Fecha */}
-                      <div className="space-y-2">
-                        <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Fecha de Inscripción</label>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-rpi-blue" />
-                          <span className="text-sm font-medium text-gray-700">{new Date('').toLocaleDateString('es-AR')}</span>
+                      <div className="grid grid-cols-2 gap-4">
+                        {/* Proporción */}
+                        <div className="space-y-2">
+                          <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Proporción</label>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                              <Percent className="w-4 h-4 text-rpi-blue" />
+                              <span className="text-lg font-bold text-rpi-blue">{asiento?.proporcion || '100%'}</span>
+                            </div>
+                          </div>
+                          <div className="w-full bg-gradient-to-r from-rpi-gray/30 to-rpi-gray/20 rounded-full h-2 overflow-hidden">
+                            <div className="bg-gradient-to-r from-rpi-blue to-blue-600 h-2 rounded-full transition-all shadow-inner" style={{ width: '100%' }}></div>
+                          </div>
+                        </div>
+
+                        {/* Fecha */}
+                        <div className="space-y-2">
+                          <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Fecha de Inscripción</label>
+                          <div className="flex items-center gap-2">
+                            <Calendar className="w-4 h-4 text-rpi-blue" />
+                            <span className="text-sm font-medium text-gray-700">{new Date().toLocaleDateString()}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
               ))}
 
               {/* Observaciones */}
