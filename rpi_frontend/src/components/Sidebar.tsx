@@ -27,7 +27,7 @@ function Sidebar({ onLogout }: SidebarProps) {
   }, [])
 
   const menuItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', badge: 0 },
+    { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard', badge: 5 },
     { icon: FileText, label: 'Mesa de Entradas', path: '/mesa-entrada' },
     { icon: Archive, label: 'Archivo', path: '/archivo' },
     { icon: Library, label: 'Folio Digital', path: '/folio' },
@@ -35,8 +35,8 @@ function Sidebar({ onLogout }: SidebarProps) {
     { icon: FileCheck, label: 'División Folios', path: '/division' },
     { icon: File, label: 'Visor Folio', path: '/visor-360' },
     { icon: ArrowRight, label: 'Workflow Folio', path: '/workflow' },
-    { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
-    { icon: Settings, label: 'Configuración', path: '/settings' },
+    /* { icon: FileCheck2, label: 'Mis Prácticas', path: '/practices' },
+    { icon: Settings, label: 'Configuración', path: '/settings' }, */
   ]
 
   const getIconColor = (path: string): string => {
@@ -62,7 +62,7 @@ function Sidebar({ onLogout }: SidebarProps) {
           </div>
           <div>
             <h2 className="text-base font-bold text-gray-900">RPI Catamarca</h2>
-            <p className="text-xs text-rpi-gray/60">Gestión Registral</p>
+            <p className="text-xs text-rpi-gray/60">MOCKUP EN DESARROLLO</p>
           </div>
         </div>
         <p className="text-xs text-rpi-gray/50 ml-1">Sistema de Folio Digital</p>
@@ -102,10 +102,9 @@ function Sidebar({ onLogout }: SidebarProps) {
       {/* Footer del Sidebar */}
       <div className="p-4 border-t border-rpi-gray/100 bg-rpi-gray/20">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
-          <p className="text-xs text-rpi-gray/70">Sistema operativo</p>
+          <p className="text-xs text-rpi-gray/70">Dirección Provincial de Tecnologías</p>
         </div>
-        <p className="text-xs text-rpi-gray/50 mt-2 text-center">v1.0.0</p>
+        <p className="text-xs text-rpi-gray/50 mt-2 text-center">Mockup v0.1.0</p>
         {onLogout && (
           <button
             onClick={onLogout}

@@ -101,7 +101,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-red-800 font-medium mb-1">Vence Pronto</p>
-              <p className="text-3xl font-bold text-red-900">0</p>
+              <p className="text-3xl font-bold text-red-900">2</p>
             </div>
             <div className="w-12 h-12 bg-red-200/50 rounded-lg flex items-center justify-center">
               <AlertCircle className="w-7 h-7 text-red-600" />
@@ -112,7 +112,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-amber-800 font-medium mb-1">En Proceso</p>
-              <p className="text-3xl font-bold text-amber-900">0</p>
+              <p className="text-3xl font-bold text-amber-900">1</p>
             </div>
             <div className="w-12 h-12 bg-amber-200/50 rounded-lg flex items-center justify-center">
               <Clock className="w-7 h-7 text-amber-600" />
@@ -123,7 +123,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-emerald-800 font-medium mb-1">En Curso</p>
-              <p className="text-3xl font-bold text-emerald-900">0</p>
+              <p className="text-3xl font-bold text-emerald-900">2</p>
             </div>
             <div className="w-12 h-12 bg-emerald-200/50 rounded-lg flex items-center justify-center">
               <CheckCircle2 className="w-7 h-7 text-emerald-600" />
