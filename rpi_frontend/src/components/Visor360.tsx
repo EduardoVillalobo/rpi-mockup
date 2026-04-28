@@ -149,14 +149,34 @@ export default function Visor360() {
         <div className="bg-white rounded-b-xl shadow-inner border border-rpi-gray/20 border-t-0 print:border-t-rpi-gray/100">
           <div className="flex flex-col md:flex-row">
             {/* Panel Izquierdo: Información del folio */}
-            <div className="w-full md:w-1/3 bg-gradient-to-br from-blue-50 to-white p-6 border-r border-rpi-gray/20 print:border-r-rpi-gray/100">
+            <div className="w-full md:w-1/4 bg-gradient-to-br from-blue-50 to-white p-6 border-r border-rpi-gray/20 print:border-r-rpi-gray/100">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-rpi-blue/10 rounded-lg flex items-center justify-center">
                   <FileText className="w-5 h-5 text-rpi-blue" />
                 </div>
                 <div>
-                  <p className="text-xs text-rpi-gray/500 uppercase tracking-wide font-medium">Folio Registral</p>
-                  <p className="text-gray-900 font-mono font-semibold">{folioData?.matricula || '88000'}</p>
+                  <p className="text-xs text-rpi-gray/500 uppercase tracking-wide font-medium">Matricula</p>
+                  <p className="text-gray-900 font-mono font-semibold">{folioData?.matricula || 'XXXXX'}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-rpi-blue/10 rounded-lg flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-rpi-blue" />
+                </div>
+                <div>
+                  <p className="text-xs text-rpi-gray/500 uppercase tracking-wide font-medium">Antecedente</p>
+                  <p className="text-gray-900 font-mono font-semibold">{folioData?.antecedente_dominio || 'XXXXX'}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-rpi-blue/10 rounded-lg flex items-center justify-center">
+                  <FileText className="w-5 h-5 text-rpi-blue" />
+                </div>
+                <div>
+                  <p className="text-xs text-rpi-gray/500 uppercase tracking-wide font-medium">Departamento</p>
+                  <p className="text-gray-900 font-mono font-semibold">{folioData?.departamento_nombre || 'XXXXX'}</p>
                 </div>
               </div>
 
@@ -166,8 +186,8 @@ export default function Visor360() {
                     <Building2 className="w-5 h-5 text-rpi-blue" />
                   </div>
                   <div>
-                    <p className="text-xs text-rpi-gray/500 uppercase tracking-wide font-medium">Departamento</p>
-                    <p className="text-gray-900 font-medium">{folioData?.nomenclatura?.departamento || 'General'}</p>
+                    <p className="text-xs text-rpi-gray/500 uppercase tracking-wide font-medium">Superficie S/titulo</p>
+                    <p className="text-gray-900 font-medium">{'XXXXXX'}</p>
                   </div>
                 </div>
 
@@ -185,27 +205,6 @@ export default function Visor360() {
                 </div>
               </div>
 
-              {folioData?.nomenclatura && (
-                <div className="mt-6 pt-6 border-t border-rpi-gray/100 space-y-3">
-                  <div>
-                    <label className="block text-xs font-semibold text-emerald-800 uppercase tracking-wide mb-1">Sección</label>
-                    <input type="text" value={folioData?.nomenclatura?.seccion || '1'} disabled className="w-full px-3 py-2.5 bg-white border border-emerald-200 rounded-lg text-gray-700 font-mono text-sm" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-emerald-800 uppercase tracking-wide mb-1">Parcela</label>
-                    <input type="text" value={folioData?.nomenclatura?.parcela || '9'} disabled className="w-full px-3 py-2.5 bg-white border border-emerald-200 rounded-lg text-gray-700 font-mono text-sm" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-emerald-800 uppercase tracking-wide mb-1">Padrón</label>
-                    <input type="text" value={folioData?.nomenclatura?.parcela || '9'} disabled className="w-full px-3 py-2.5 bg-white border border-emerald-200 rounded-lg text-gray-700 font-mono text-sm" />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-semibold text-emerald-800 uppercase tracking-wide mb-1">Plano</label>
-                    <input type="text" value={folioData?.nomenclatura?.parcela || '9'} disabled className="w-full px-3 py-2.5 bg-white border border-emerald-200 rounded-lg text-gray-700 font-mono text-sm" />
-                  </div>
-                </div>
-              )}
-
               {folioData?.superficiario && folioData.superficiario.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-rpi-gray/100 space-y-3">
                   <h3 className="text-sm font-semibold text-gray-800 mb-3">Superficiales</h3>
@@ -221,12 +220,6 @@ export default function Visor360() {
                 </div>
               )}
 
-              <div className="mt-6 pt-6 border-t border-rpi-gray/100">
-                <span className="text-sm text-rpi-gray/60 flex items-center gap-2">
-                  <FileText className="w-4 h-4" />
-                  {folioData?.titularidad_dominio?.length || 0} asientos registrales
-                </span>
-              </div>
 
               {folioData?.gravamenes && folioData.gravamenes.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-rpi-gray/100">
@@ -259,7 +252,7 @@ export default function Visor360() {
 
 
             {/* Panel Derecho: Visualización principal */}
-            <div className="w-full md:w-2/3 p-6 overflow-hidden">
+            <div className="w-full md:w-3/4 p-6 overflow-hidden">
 
               {/* Header del visor */}
               <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-lg shadow-inner mb-6 print:hidden">
@@ -285,50 +278,123 @@ export default function Visor360() {
               <div className="space-y-6">
                 <div className="bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <MapPin  className="w-5 h-5 text-blue-600" />
+                    <MapPin className="w-5 h-5 text-blue-600" />
                     Información Catastral
                   </h3>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {/* Dominio */}
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Dominio
-                      </label>
-                      <input
-                        type="text"
-                        value={folioData?.matricula || 'No especificado'}
-                        disabled
-                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
-                      />
-                    </div>
-
-                    {/* Departamento */}
+                  <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+                    {/* Codigo Departamento */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
                         Departamento
                       </label>
                       <input
                         type="text"
-                        value={folioData?.departamento_nombre || 'No especificado'}
+                        value={folioData?.nomenclatura?.departamento || '0'}
                         disabled
                         className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
                       />
                     </div>
 
-                    {/* Antecedente */}
+                    {/* Codigo Distrito */}
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">
-                        Antecedente
+                        Distrito
                       </label>
-                      <div className="relative">
-                        <input
+                      <input
                         type="text"
-                        value={folioData?.antecedente_dominio || 'No especificado'}
+                        value={folioData?.nomenclatura?.distrito || '0'}
                         disabled
                         className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
                       />
-                      </div>
+                    </div>
+                    {/* Codigo Seccion */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Sección
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.nomenclatura?.seccion || '0'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+
+                    {/* Codigo Parcela */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Parcela
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.nomenclatura?.parcela || '0'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+                    {/* Codigo Manzana */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Manzana
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.nomenclatura?.manzana || '0'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
+                    {/* Plano */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Plano
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.nomenclatura?.plano || '0'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+
+                    {/* Superficie según Plano */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Superficie según Plano
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.nomenclatura?.superficie_plano || '0'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+
+                    {/* Fecha de apertura */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Fecha de Apertura
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.nomenclatura?.fecha_apertura || '0'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-3 mt-4">
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Descripción de Inmueble
+                    </label>
+                    <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100 flex-1">
+                      <p className="text-sm text-slate-700 leading-relaxed">{ }</p>
+                      <p className="text-xs text-rpi-gray/600">{ }</p>
                     </div>
                   </div>
                 </div>
