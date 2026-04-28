@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FileText, Search, ArrowDownToDot, Percent, Building2, Calendar, CheckCircle2, FileBadge, FileDigit, Plus } from 'lucide-react'
+import { FileText, Search, ArrowDownToDot, Percent, Building2, Calendar, CheckCircle2, FileBadge, FileDigit, Plus, MapPin } from 'lucide-react'
 
 type Nomenclatura = {
   departamento?: string
@@ -130,16 +130,16 @@ export default function Visor360() {
         <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-t-2xl shadow-inner print:hidden">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
-              <FileBadge className="w-7 h-7 text-white/80" />              
+              <FileBadge className="w-7 h-7 text-white/80" />
             </div>
             <div>
               <h1 className="text-2xl font-bold tracking-tight">Visor Folio Digital</h1>
-              <p className="text-blue-100/80 text-sm">Visualización de información registral</p>
+              <p className="text-blue-100/80 text-sm">Folio Certificado Digitalmente</p>
             </div>
           </div>
 
           <div className="hidden lg:flex items-center gap-2 text-sm text-blue-100/70">
-          
+
             <ArrowDownToDot className="w-4 h-4" />
             <span>Ver otro documento</span>
           </div>
@@ -257,13 +257,15 @@ export default function Visor360() {
               )}
             </div>
 
+
             {/* Panel Derecho: Visualización principal */}
             <div className="w-full md:w-2/3 p-6 overflow-hidden">
+
               {/* Header del visor */}
               <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-lg shadow-inner mb-6 print:hidden">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                  <FileDigit className="w-7 h-7 text-white/80"/>
+                    <FileDigit className="w-7 h-7 text-white/80" />
                   </div>
                   <div>
                     <h2 className="text-xl font-bold">MATRICULA {folioData?.matricula || 'XXXXXX'}</h2>
@@ -275,6 +277,59 @@ export default function Visor360() {
                   <div className="text-right">
                     <div className="text-2xl font-bold">{folioData?.titularidad_dominio?.length || 0}</div>
                     <div className="text-xs text-blue-100/70">Asientos</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Panel de Informacion Catastral */}
+              <div className="space-y-6">
+                <div className="bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <MapPin  className="w-5 h-5 text-blue-600" />
+                    Información Catastral
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {/* Dominio */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Dominio
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.matricula || 'No especificado'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+
+                    {/* Departamento */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Departamento
+                      </label>
+                      <input
+                        type="text"
+                        value={folioData?.departamento_nombre || 'No especificado'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                    </div>
+
+                    {/* Antecedente */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Antecedente
+                      </label>
+                      <div className="relative">
+                        <input
+                        type="text"
+                        value={folioData?.antecedente_dominio || 'No especificado'}
+                        disabled
+                        className="w-full px-4 py-3 bg-gray-100 border border-gray-200 rounded-xl text-gray-500 cursor-not-allowed focus:outline-none"
+                      />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -331,8 +386,8 @@ export default function Visor360() {
                       </span>
                     </div>
                   </div>
-                  
-                  <div className="bg-white rounded-[2rem] shadow-lg border border-slate-200 overflow-hidden py-5">
+
+                  <div className="bg-white rounded-[1rem] shadow-lg border border-slate-200 overflow-hidden py-5">
                     <div className="p-5">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-rpi-blue/10 to-blue-500/10 rounded-lg flex items-center justify-center group-hover:from-rpi-blue/20 group-hover:to-blue-500/20 transition-colors">
