@@ -1,0 +1,15 @@
+{
+    "inmueble": {
+        "extension": "El inmueble tiene una extensión de 1,000 metros cuadrados.",
+        "limites": {
+            "norte": "Callejón público",
+            "sudeste": [
+                "MC 06-29-03-5339",
+                "MC 06-29-03-5944"
+            ],
+            "sudoeste": [
+                "MC 06-29-03-5330"
+            ]
+        }
+    }
+}
