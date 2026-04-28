@@ -60,6 +60,73 @@ function App() {
   // Valor seguro para handleLogout (si no está en context, devuelve undefined)
   const logoutFunc = typeof handleLogout === 'function' ? handleLogout : undefined
 
+  // Estado del Sidebar responsivo
+  // - Inicia como true en escritorio (pantallas grandes)
+  // - Inicia como false en móviles (CSS lo oculta)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
+    const stored = localStorage.getItem('rpi_sidebar_open')
+    if (stored !== null) {
+      return stored === 'true'
+    }
+    // Inicia como true y usaré CSS para ocultarlo en móvil
+    return window.innerWidth >= 1024
+  })
+
+  // Ajustar el estado del sidebar cuando cambia el tamaño de ventana
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        // En escritorio, volver al estado anterior
+        setIsSidebarOpen(() => {
+          const stored = localStorage.getItem('rpi_sidebar_open')
+          return stored === 'true'
+        })
+      } else {
+        // En móvil, el sidebar debe estar cerrado (false)
+        setIsSidebarOpen(false)
+        localStorage.setItem('rpi_sidebar_open', 'false')
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    // Escuchar cambios en la URL para sincronizar en SPA
+    window.addEventListener('popstate', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('popstate', handleResize)
+    }
+  }, [])
+
+  // Persistir el estado del sidebar en localStorage
+  useEffect(() => {
+    localStorage.setItem('rpi_sidebar_open', isSidebarOpen.toString())
+  }, [isSidebarOpen])
+
+  // Toggle del sidebar para localStorage
+  const toggleSidebar = () => {
+    if (window.innerWidth < 1024) {
+      // En móvil, solo abrir o cerrar
+      setIsSidebarOpen(prev => !prev)
+    } else {
+      // En escritorio, abrir/cerrar manualmente
+      setIsSidebarOpen(prev => !prev)
+    }
+  }
+
+  // Función para cerrar sidebar en móvil (usada por el overlay)
+  const closeSidebarOnMobile = () => {
+    if (window.innerWidth < 1024) {
+      setIsSidebarOpen(false)
+    }
+  }
+
+  // Clases dinámicas para el main content
+  const mainClasses = `flex-1 transition-all duration-300 ease-in-out ${
+    isSidebarOpen && window.innerWidth >= 1024 ? 'ml-64' : 'ml-0'
+  }`
+
   return (
     <BrowserRouter>
       <Routes>
@@ -79,10 +146,17 @@ function App() {
           element={
             isAuthenticated ? (
               <div className="min-h-screen bg-gray-50">
-                <Header onLogout={logoutFunc} />
+                <Header onLogout={logoutFunc} toggleSidebar={toggleSidebar} />
+                {/* Overlay para móvil */}
+                {isSidebarOpen && window.innerWidth < 1024 && (
+                  <div
+                    className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+                    onClick={closeSidebarOnMobile}
+                  />
+                )}
                 <div className="flex min-h-screen">
-                  <Sidebar onLogout={logoutFunc} />
-                  <main className="flex-1">
+                  <Sidebar onLogout={logoutFunc} isOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+                  <main className={mainClasses}>
                     <Routes>
                       <Route path="/" element={<Navigate to="/dashboard" replace />} />
                       <Route path="/dashboard" element={<Dashboard />} />
