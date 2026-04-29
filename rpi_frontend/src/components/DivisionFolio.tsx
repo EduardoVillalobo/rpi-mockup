@@ -602,8 +602,8 @@ const DivisionFolio: React.FC = () => {
                 </span>
               </div>
               <div>
-                <p className="text-3xl font-bold text-gray-900 mb-1">9</p>
-                <p className="text-sm text-gray-600 font-medium">Folios Congelados</p>
+                <p className="text-3xl font-bold text-gray-900 mb-1">6</p>
+                <p className="text-sm text-gray-600 font-medium">Folios Bloqueados</p>
               </div>
             </div>
           </div>
@@ -702,8 +702,6 @@ const DivisionFolio: React.FC = () => {
               </table>
             </div>
           </div>
-        </main>
-
         {/* Footer */}
         <footer className="mt-6 bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4">
           <div className="flex items-center justify-between text-sm text-gray-600">
@@ -717,6 +715,8 @@ const DivisionFolio: React.FC = () => {
             </div>
           </div>
         </footer>
+        </main>
+
 
       </div>
     )

@@ -6,44 +6,49 @@ from django.http import JsonResponse
 # Datos hardcodeados de trámites
 TRAMITES_DATA = [
     {
-        "id": 1,
-        "folio": "AB123CD",
-        "trámite": "Expediente de Compraventa",
+        "id": 432,
+        "folio": "14.125",
+        "tramite": "Compraventa",
         "estado": "En Calificación",
         "semaforo": "rojo",
-        "vencimiento_dias": 5
+        "vencimiento_dias": 5,
+        "fecha_inicio": "2024-06-01"
     },
     {
-        "id": 2,
-        "folio": "AB123CD",
-        "trámite": "Pago de Derechos",
+        "id": 433,
+        "folio": "4.523",
+        "tramite": "Donación",
         "estado": "En Proceso",
         "semaforo": "amarillo",
-        "vencimiento_dias": 12
+        "vencimiento_dias": 12,
+        "fecha_inicio": "2024-06-01"
     },
     {
-        "id": 3,
-        "folio": "EF456GH",
-        "trámite": "Solicitud de Encomienda",
+        "id": 434,
+        "folio": "10.257",
+        "tramite": "Reserva de usufructo",
         "estado": "Para Firma",
         "semaforo": "verde",
-        "vencimiento_dias": 25
+        "vencimiento_dias": 25,
+        "fecha_inicio": "2024-12-20"
     },
     {
-        "id": 4,
-        "folio": "EF456GH",
-        "trámite": "Inspección Preliminar",
+        "id": 435,
+        "folio": "62.003",
+        "tramite": "Toma de Razón",
         "estado": "En Calificación",
         "semaforo": "rojo",
-        "vencimiento_dias": 3
+        "vencimiento_dias": 3,
+        "fecha_inicio": "2026-04-10"
     },
     {
-        "id": 5,
-        "folio": "EF456GH",
-        "trámite": "Publicación de Edicto",
-        "estado": "Completado",
+        "id": 436,
+        "folio": "2.707",
+        "tramite": "Hipoteca",
+        "estado": "Expedido",
         "semaforo": "verde",
-        "vencimiento_dias": 45
+        "vencimiento_dias": 45,
+        "fecha_inicio": "2024-04-20"
     }
 ]
 

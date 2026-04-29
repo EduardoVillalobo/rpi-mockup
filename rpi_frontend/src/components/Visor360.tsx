@@ -81,6 +81,28 @@ export default function Visor360() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50/30">
+      <div className="bg-gradient-to-r from-blue-800 to-blue-900 text-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                <FileBadge className="w-6 h-6 text-white/80" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold tracking-tight">Visor Folio Digital</h1>
+                <p className="text-blue-100/80 text-sm">Folio Certificado Digitalmente</p>
+              </div>
+            </div>
+            <div className="text-right text-sm">
+              <p>Estado del Sistema</p>
+              <div className="flex items-center justify-end gap-2 mt-1">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                <span className="text-emerald-200">Operativo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4 mb-6">
           <div className="flex flex-col md:flex-row gap-4 items-center">
@@ -121,27 +143,29 @@ export default function Visor360() {
               onClick={() => alert('Navegar a búsqueda de folio digitalizado')}
               className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium rounded-xl shadow-sm hover:shadow-md transition-all flex items-center gap-2"
             >
-              <Plus className="w-5 h-5" />
-              <span className="hidden sm:inline">Buscar Folio digitalizado</span>
+              <Search className="w-5 h-5" />
+              <span className="hidden sm:inline">Buscar</span>
             </button>
           </div>
         </div>
         {/* Header principal */}
         <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-t-2xl shadow-inner print:hidden">
+
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
-              <FileBadge className="w-7 h-7 text-white/80" />
+              <FileDigit className="w-7 h-7 text-white/80" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight">Visor Folio Digital</h1>
-              <p className="text-blue-100/80 text-sm">Folio Certificado Digitalmente</p>
+              <h2 className="text-xl font-bold">MATRICULA {folioData?.matricula || 'XXXXXX'}</h2>
+              <p className="text-blue-100/70 text-sm">Antecedente de Dominio: {folioData?.antecedente_dominio}</p>
             </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-2 text-sm text-blue-100/70">
-
-            <ArrowDownToDot className="w-4 h-4" />
-            <span>Ver otro documento</span>
+          <div className="flex items-center gap-4">
+            <div className="text-right">
+              <div className="text-2xl font-bold">{folioData?.titularidad_dominio?.length || 0}</div>
+              <div className="text-xs text-blue-100/70">Asientos</div>
+            </div>
           </div>
         </div>
 
@@ -254,25 +278,6 @@ export default function Visor360() {
             {/* Panel Derecho: Visualización principal */}
             <div className="w-full md:w-3/4 p-6 overflow-hidden">
 
-              {/* Header del visor */}
-              <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-lg shadow-inner mb-6 print:hidden">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                    <FileDigit className="w-7 h-7 text-white/80" />
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-bold">MATRICULA {folioData?.matricula || 'XXXXXX'}</h2>
-                    <p className="text-blue-100/70 text-sm">Antecedente de Dominio: {folioData?.antecedente_dominio}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="text-right">
-                    <div className="text-2xl font-bold">{folioData?.titularidad_dominio?.length || 0}</div>
-                    <div className="text-xs text-blue-100/70">Asientos</div>
-                  </div>
-                </div>
-              </div>
 
               {/* Panel de Informacion Catastral */}
               <div className="space-y-6">

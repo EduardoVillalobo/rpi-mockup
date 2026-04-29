@@ -281,7 +281,8 @@ export default function MisTramites() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50/30">
       {/* Header con estadísticas */}
-      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between rounded-t-2xl shadow-inner print:hidden">
+      <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white p-6 flex items-center justify-between shadow-inner print:hidden">
+        
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
             <FileText className="w-7 h-7 text-white/80" />

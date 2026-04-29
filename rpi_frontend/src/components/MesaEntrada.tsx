@@ -435,21 +435,20 @@ const MesaEntrada: React.FC = () => {
             </div>
           )}
         </div>
+        {/* Footer con información */}
+        <footer className="mt-6 bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4">
+          <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+              <span>Sistema de Registro de la Propiedad Inmobiliaria</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span>Última actualización: {new Date().toLocaleTimeString('es-ES')}</span>
+              <span>v1.0.0</span>
+            </div>
+          </div>
+        </footer>
       </main>
-
-      {/* Footer con información */}
-      <footer className="mt-6 bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4">
-        <div className="flex items-center justify-between text-sm text-gray-600">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-            <span>Sistema de Registro de la Propiedad Inmobiliaria</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span>Última actualización: {new Date().toLocaleTimeString('es-ES')}</span>
-            <span>v1.0.0</span>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

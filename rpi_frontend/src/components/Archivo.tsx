@@ -149,22 +149,20 @@ const ModalArchivo: React.FC<ModalArchivoProps> = ({ tramite, onClose, onSave })
               <label className="block text-sm font-semibold text-gray-700">
                 Estado Registral del Trámite
               </label>
-              <span className={`px-3 py-1 rounded-full text-xs font-medium border ${
-                estadoRegistralGlobal === 'Libre'
-                  ? 'bg-emerald-100 text-emerald-700 border-emerald-300'
-                  : 'bg-red-100 text-red-700 border-red-300'
-              }`}>
+              <span className={`px-3 py-1 rounded-full text-xs font-medium border ${estadoRegistralGlobal === 'Libre'
+                ? 'bg-emerald-100 text-emerald-700 border-emerald-300'
+                : 'bg-red-100 text-red-700 border-red-300'
+                }`}>
                 {estadoRegistralGlobal === 'Libre' ? 'Folio Libre' : 'Folio Bloqueado'}
               </span>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={() => handleEstadoGlobalChange('Libre')}
-                className={`px-4 py-3 rounded-xl font-medium transition-all ${
-                  estadoRegistralGlobal === 'Libre'
-                    ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`px-4 py-3 rounded-xl font-medium transition-all ${estadoRegistralGlobal === 'Libre'
+                  ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 <div className="flex items-center justify-center gap-2">
                   <CheckCircle2 className="w-5 h-5" />
@@ -173,11 +171,10 @@ const ModalArchivo: React.FC<ModalArchivoProps> = ({ tramite, onClose, onSave })
               </button>
               <button
                 onClick={() => handleEstadoGlobalChange('Bloqueado')}
-                className={`px-4 py-3 rounded-xl font-medium transition-all ${
-                  estadoRegistralGlobal === 'Bloqueado'
-                    ? 'bg-red-500 text-white shadow-lg shadow-red-500/30'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`px-4 py-3 rounded-xl font-medium transition-all ${estadoRegistralGlobal === 'Bloqueado'
+                  ? 'bg-red-500 text-white shadow-lg shadow-red-500/30'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 <div className="flex items-center justify-center gap-2">
                   <AlertCircle className="w-5 h-5" />
@@ -212,13 +209,12 @@ const ModalArchivo: React.FC<ModalArchivoProps> = ({ tramite, onClose, onSave })
                 return (
                   <div
                     key={index}
-                    className={`p-4 rounded-xl border-2 transition-all ${
-                      folioEstado.bloqueado
-                        ? 'bg-red-50 border-red-300'
-                        : estadoRegistralGlobal === 'Libre'
+                    className={`p-4 rounded-xl border-2 transition-all ${folioEstado.bloqueado
+                      ? 'bg-red-50 border-red-300'
+                      : estadoRegistralGlobal === 'Libre'
                         ? 'bg-blue-50 border-blue-200'
                         : 'bg-gray-50 border-gray-200'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -226,11 +222,10 @@ const ModalArchivo: React.FC<ModalArchivoProps> = ({ tramite, onClose, onSave })
                           <span className="text-sm font-bold text-gray-900">
                             {folio}
                           </span>
-                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
-                            folioEstado.digitalizado
-                              ? 'bg-emerald-100 text-emerald-700'
-                              : 'bg-gray-100 text-gray-600'
-                          }`}>
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${folioEstado.digitalizado
+                            ? 'bg-emerald-100 text-emerald-700'
+                            : 'bg-gray-100 text-gray-600'
+                            }`}>
                             {folioEstado.digitalizado ? 'Digitalizado' : 'Pendiente'}
                           </span>
                         </div>
@@ -246,12 +241,10 @@ const ModalArchivo: React.FC<ModalArchivoProps> = ({ tramite, onClose, onSave })
                                 onChange={(e) => handleBloqueoChange(index, e.target.checked)}
                                 className="sr-only"
                               />
-                              <div className={`w-10 h-6 rounded-full transition-colors ${
-                                folioEstado.bloqueado ? 'bg-red-500' : 'bg-gray-300'
-                              }`}></div>
-                              <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                                folioEstado.bloqueado ? 'translate-x-5' : 'translate-x-1'
-                              }`}></div>
+                              <div className={`w-10 h-6 rounded-full transition-colors ${folioEstado.bloqueado ? 'bg-red-500' : 'bg-gray-300'
+                                }`}></div>
+                              <div className={`w-5 h-5 bg-white rounded-full transition-transform ${folioEstado.bloqueado ? 'translate-x-5' : 'translate-x-1'
+                                }`}></div>
                             </label>
                           </div>
 
@@ -265,12 +258,10 @@ const ModalArchivo: React.FC<ModalArchivoProps> = ({ tramite, onClose, onSave })
                                 onChange={(e) => handleDigitalizadoChange(index, e.target.checked)}
                                 className="sr-only"
                               />
-                              <div className={`w-10 h-6 rounded-full transition-colors ${
-                                folioEstado.digitalizado ? 'bg-emerald-500' : 'bg-gray-300'
-                              }`}></div>
-                              <div className={`w-5 h-5 bg-white rounded-full transition-transform ${
-                                folioEstado.digitalizado ? 'translate-x-5' : 'translate-x-1'
-                              }`}></div>
+                              <div className={`w-10 h-6 rounded-full transition-colors ${folioEstado.digitalizado ? 'bg-emerald-500' : 'bg-gray-300'
+                                }`}></div>
+                              <div className={`w-5 h-5 bg-white rounded-full transition-transform ${folioEstado.digitalizado ? 'translate-x-5' : 'translate-x-1'
+                                }`}></div>
                             </label>
                           </div>
 
@@ -301,11 +292,10 @@ const ModalArchivo: React.FC<ModalArchivoProps> = ({ tramite, onClose, onSave })
               <label className="block text-sm font-semibold text-gray-700">
                 Estado Global de Digitalización
               </label>
-              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                digitalizadoGlobal
-                  ? 'bg-emerald-100 text-emerald-700'
-                  : 'bg-gray-100 text-gray-600'
-              }`}>
+              <span className={`px-3 py-1 rounded-full text-xs font-medium ${digitalizadoGlobal
+                ? 'bg-emerald-100 text-emerald-700'
+                : 'bg-gray-100 text-gray-600'
+                }`}>
                 {digitalizadoGlobal ? 'Todos Digitalizados' : 'Pendiente de Digitalización'}
               </span>
             </div>
@@ -626,21 +616,22 @@ const Archivo: React.FC = () => {
             </table>
           </div>
         </div>
+        {/* Footer */}
+        <footer className="mt-6 bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4">
+          <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+              <span>Sistema de Registro de la Propiedad Inmobiliaria</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <span>Última actualización: {new Date().toLocaleTimeString('es-ES')}</span>
+              <span>v1.0.0</span>
+            </div>
+          </div>
+        </footer>
       </main>
 
-      {/* Footer */}
-      <footer className="mt-6 bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4">
-        <div className="flex items-center justify-between text-sm text-gray-600">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
-            <span>Sistema de Registro de la Propiedad Inmobiliaria</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span>Última actualización: {new Date().toLocaleTimeString('es-ES')}</span>
-            <span>v1.0.0</span>
-          </div>
-        </div>
-      </footer>
+
 
       {/* Modal de Detalle */}
       {mostrarModal && selectedTramite && (

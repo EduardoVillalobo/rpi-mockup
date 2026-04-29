@@ -68,28 +68,28 @@ export default function DigitalizacionFolio() {
   const folios_pendientes = [
     {
       matricula: '88000',
-      matricula_catastral: '01-25-2525-S/D',
-      usuario_solicitante: 'Mesa de Entrada - J. PÃ©rez'
+      matricula_catastral: '01-25-2525-0000',
+      usuario_solicitante: 'Mesa de Entrada - J. Pérez'
     },
     {
       matricula: '87950',
-      matricula_catastral: '02-25-3100-N/E',
-      usuario_solicitante: 'Mesa de Entrada - M. GarcÃ­a'
+      matricula_catastral: '02-25-3100-0000',
+      usuario_solicitante: 'Mesa de Entrada - M. García'
     },
     {
       matricula: '88100',
-      matricula_catastral: '03-25-1800-P/O',
-      usuario_solicitante: 'Mesa de Entrada - L. MartÃ­nez'
+      matricula_catastral: '03-25-1800-0000',
+      usuario_solicitante: 'Mesa de Entrada - L. Martínez'
     },
     {
       matricula: '87920',
-      matricula_catastral: '04-25-4200-R/T',
-      usuario_solicitante: 'Mesa de Entrada - A. RodrÃ­guez'
+      matricula_catastral: '04-25-4200-0000',
+      usuario_solicitante: 'Mesa de Entrada - A. Rodríguez'
     },
     {
       matricula: '88050',
-      matricula_catastral: '05-25-3300-Q/U',
-      usuario_solicitante: 'Mesa de Entrada - C. LÃ³pez'
+      matricula_catastral: '05-25-3300-0000',
+      usuario_solicitante: 'Mesa de Entrada - C. López'
     }
   ]
 
@@ -120,23 +120,23 @@ export default function DigitalizacionFolio() {
         titularidad_dominio: [
           {
             asiento: 1,
-            titulares: 'Juan PÃ©rez - Documento 123456',
+            titulares: 'Juan Pérez - Documento 123456',
             descripcion: 'Compra-venta con escritura pÃºblica',
             proporcion: '100%',
             tipo_procedimiento: 'AdquisiciÃ³n por compra-venta'
           },
           {
             asiento: 2,
-            titulares: 'MarÃ­a GarcÃ­a - Documento 789012',
-            descripcion: 'DonaciÃ³n entre parientes',
+            titulares: 'María García - Documento 789012',
+            descripcion: 'Donación entre parientes',
             proporcion: '100%',
-            tipo_procedimiento: 'AdquisiciÃ³n por donaciÃ³n'
+            tipo_procedimiento: 'Adquisición por donación'
           }
         ],
         superficiario: [
           {
-            titulo: 'SegÃºn TÃ­tulo',
-            plano: 'SegÃºn Plano Oficial',
+            titulo: 'Según Título',
+            plano: 'Según Plano Oficial',
             este: '12.5 m',
             oeste: '15.3 m',
             norte: '18.2 m',
@@ -153,7 +153,7 @@ export default function DigitalizacionFolio() {
         certificados: [
           {
             asiento: 1,
-            descripcion: 'Cert. nÂº 1 - No existen gravÃ¡menes reales adicionales'
+            descripcion: 'Cert. nÂº 1 - No existen gravámenes reales adicionales'
           },
           {
             asiento: 2,
@@ -316,25 +316,51 @@ export default function DigitalizacionFolio() {
   if (!folioSeleccionado) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50/30">
+        {/* Header principal */}
+        <div className="bg-gradient-to-r from-blue-800 to-blue-900 text-white shadow-lg">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                  <ScanText className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-xl font-bold">Folios Pendientes de Digitalización</h1>
+                  <p className="text-blue-200 text-sm">Seleccione un folio para comenzar el proceso de digitalización</p>
+                </div>
+              </div>
+              <div className="text-right text-sm">
+                <p>Estado del Sistema</p>
+                <div className="flex items-center justify-end gap-2 mt-1">
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                  <span className="text-emerald-200">Operativo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 py-6">
           {/* Header principal */}
-          <div className="mb-8 print:hidden">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="w-12 h-12 bg-rpi-blue/10 rounded-xl flex items-center justify-center">
-                <ScanText className="w-7 h-7 text-rpi-blue" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Folios Pendientes de Digitalización</h1>
-                <p className="text-gray-600 text-sm">Seleccione un folio para comenzar el proceso de digitalización</p>
+          <div className="print:hidden">
+            <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
+              <div className="flex items-start gap-3">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div className="text-sm text-blue-800">
+                  <p className="font-semibold mb-1">Información del módulo</p>
+                  <p className="text-blue-700">
+                    Este módulo permite la digitalización de folios registrales mediante escaneo de PDFs y
+                    procesamiento OCR para extraer automáticamente la información del asiento registral.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Tabla de folios pendientes */}
-          <div className="bg-white rounded-xl shadow-sm border border-rpi-gray/20 overflow-hidden print:shadow-none print:border-rpi-gray/100">
+          <div className="bg-white rounded-xl shadow-sm border border-rpi-gray/20 overflow-hidden print:shadow-none print:border-rpi-gray/100 mt-6">
             <div className="overflow-x-auto">
               <table className="w-full">
-                <thead className="bg-rpi-gray/50 border-b border-rpi-gray/100">
+                <thead className="bg-gray-50 border-b border-rpi-gray/20">
                   <tr>
                     <th className="px-6 py-4 text-left text-xs font-semibold text-rpi-gray/700 uppercase tracking-wide">
                       Matrícula
@@ -391,20 +417,18 @@ export default function DigitalizacionFolio() {
           </div>
 
           {/* Footer informativo */}
-          <div className="mt-6 print:hidden">
-            <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full mt-1.5 flex-shrink-0"></div>
-                <div className="text-sm text-blue-800">
-                  <p className="font-semibold mb-1">Información del módulo</p>
-                  <p className="text-blue-700">
-                    Este módulo permite la digitalización de folios registrales mediante escaneo de PDFs y
-                    procesamiento OCR para extraer automáticamente la información del asiento registral.
-                  </p>
-                </div>
+          <footer className="mt-6 bg-white rounded-xl shadow-sm border border-rpi-gray/20 p-4">
+            <div className="flex items-center justify-between text-sm text-gray-600">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                <span>Sistema de Registro de la Propiedad Inmobiliaria</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span>Última actualización: {new Date().toLocaleTimeString('es-ES')}</span>
+                <span>v1.0.0</span>
               </div>
             </div>
-          </div>
+          </footer>
         </div>
       </div>
     )
@@ -413,6 +437,7 @@ export default function DigitalizacionFolio() {
   // Vista: Formulario de edición
   return (
     <div className="min-h-screen bg-gray-100">
+
       <div className="max-w-7xl mx-auto px-4 py-6">
         {/* Header con botón Volver */}
         <div className="flex items-center justify-between mb-6 print:hidden">
@@ -430,7 +455,7 @@ export default function DigitalizacionFolio() {
           </div>
           <div className="flex items-center gap-2 text-rpi-blue">
             <MonitorUp className="w-5 h-5" />
-            <span className="text-sm font-semibold">MÃ³dulo de DigitalizaciÃ³n</span>
+            <span className="text-sm font-semibold">Módulo de Digitalización</span>
           </div>
         </div>
 
@@ -438,7 +463,7 @@ export default function DigitalizacionFolio() {
         {cargando ? (
           <div className="max-w-4xl mx-auto text-center py-20">
             <div className="w-16 h-16 border-4 border-rpi-blue/30 border-t-rpi-blue rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-gray-600 font-medium">Extrayendo datos del PDF histÃ³rico...</p>
+            <p className="text-gray-600 font-medium">Extrayendo datos del PDF histórico...</p>
           </div>
         ) : datosExtraidos ? (
           /* Formulario completo */
@@ -451,15 +476,15 @@ export default function DigitalizacionFolio() {
                     <Building2 className="w-5 h-5 text-rpi-blue" />
                   </div>
                   <div>
-                    <h2 className="text-base font-semibold text-gray-900">Datos Generales e IdentificaciÃ³n</h2>
-                    <p className="text-xs text-rpi-gray/600">InformaciÃ³n bÃ¡sica del folio</p>
+                    <h2 className="text-base font-semibold text-gray-900">Datos Generales e Identificación</h2>
+                    <p className="text-xs text-rpi-gray/600">Información básica del folio</p>
                   </div>
                 </div>
               </div>
 
               <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">MatrÃ­cula</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Matrícula</label>
                   <input
                     type="text"
                     value={datosExtraidos.matricula || ''}
@@ -537,7 +562,7 @@ export default function DigitalizacionFolio() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">SecciÃ³n</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Sección</label>
                   <input
                     type="text"
                     value={datosExtraidos.nomenclatura?.seccion || ''}
@@ -567,7 +592,7 @@ export default function DigitalizacionFolio() {
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">PadrÃ³n</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Padrón</label>
                   <input
                     type="text"
                     value={datosExtraidos.nomenclatura?.parcela || ''}
@@ -577,7 +602,7 @@ export default function DigitalizacionFolio() {
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Superficie segÃºn TÃ­tulo (mÂ²)</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Superficie según Título (m²)</label>
                   <input
                     type="text"
                     value={datosExtraidos.superficiario?.[0]?.titulo || ''}
@@ -587,7 +612,7 @@ export default function DigitalizacionFolio() {
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Superficie segÃºn Plano (mÂ²)</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Superficie según Plano (m²)</label>
                   <input
                     type="text"
                     value={datosExtraidos.superficiario?.[0]?.plano || ''}
@@ -617,7 +642,7 @@ export default function DigitalizacionFolio() {
                   </div>
                   <div>
                     <h2 className="text-base font-semibold text-white">Titularidad sobre el Dominio</h2>
-                    <p className="text-xs text-blue-100">InformaciÃ³n crÃ­tica de los asientos registrales</p>
+                    <p className="text-xs text-blue-100">Información crítica de los asientos registrales</p>
                   </div>
                 </div>
               </div>
@@ -656,7 +681,7 @@ export default function DigitalizacionFolio() {
 
                         <div className="md:col-span-2">
                           <label className="block text-xs font-semibold text-blue-800 uppercase tracking-wide mb-1">
-                            DescripciÃ³n/Causa de AdquisiciÃ³n
+                            Descripción/Causa de Adquisición
                           </label>
                           <textarea
                             value={asiento.descripcion || asiento.tipo_procedimiento || ''}
@@ -696,7 +721,7 @@ export default function DigitalizacionFolio() {
                   </div>
                   <div>
                     <h2 className="text-base font-semibold text-gray-900">Otros Rubros</h2>
-                    <p className="text-xs text-rpi-gray/600">GravÃ¡menes, cancelaciones y certificados</p>
+                    <p className="text-xs text-rpi-gray/600">Gravámenes, cancelaciones y certificados</p>
                   </div>
                 </div>
               </div>
@@ -705,7 +730,7 @@ export default function DigitalizacionFolio() {
                 {/* GravÃ¡menes */}
                 {datosExtraidos.gravamenes && datosExtraidos.gravamenes.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-800 mb-3">GravÃ¡menes</h3>
+                    <h3 className="text-sm font-semibold text-gray-800 mb-3">Gravámenes</h3>
                     {datosExtraidos.gravamenes.map((gravamen: Gravamen, index: number) => (
                       <div key={index} className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                         <div className="flex items-start gap-3">
