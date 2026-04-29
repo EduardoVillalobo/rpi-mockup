@@ -14,6 +14,7 @@ import Archivo from './components/Archivo'
 import DivisionFolio from './components/DivisionFolio'
 import NuevoTramite from './components/nuevoTramite'
 import DigitalizacionFolio from './components/DigitalizacionFolio'
+import MisTramites from './components/MisTramites'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
@@ -95,6 +96,7 @@ function App() {
                       <Route path="/mesa-entrada" element={<MesaEntrada />} />
                       <Route path="/archivo" element={<Archivo />} />
                       <Route path="/division" element={<DivisionFolio />} />
+                      <Route path="/mis-tramites" element={<MisTramites />} />
                       <Route
                         path="/nuevo-tramite"
                         element={
