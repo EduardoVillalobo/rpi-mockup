@@ -641,7 +641,7 @@ export default function MisTramites() {
             <div className="bg-white rounded-xl border border-rpi-gray/20 overflow-hidden print:border-r-rpi-gray/100">
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-rpi-gray/50">
+                  <thead className="bg-gray-50 border-b border-rpi-gray/20">
                     <tr>
                       <th className="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">ID</th>
                       <th className="px-4 py-3 text-left text-xs font-medium text-gray-600 uppercase tracking-wider">Ingreso Mesa</th>
@@ -737,7 +737,7 @@ export default function MisTramites() {
               </div>
 
               {/* Resumen de Trámites */}
-              <div className="bg-rpi-gray/50 px-4 py-3 text-xs text-gray-600 border-t border-rpi-gray/20 print:border-t-r-rpi-gray/100">
+              <div className="bg-gray-50 border-rpi-gray/20 px-4 py-3 text-xs text-gray-600 border-t print:border-t-r-rpi-gray/100">
                 Total de trámites asignados: {mockTramites.length}
               </div>
             </div>
