@@ -93,7 +93,6 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="text-right text-sm">
-              <p>Estado del Sistema</p>
               <div className="px-4 py-2 bg-white rounded-lg border border-rpi-gray/20 shadow-sm">
                 <p className="text-2xl font-bold text-rpi-blue">{tramites.length}</p>
                 <p className="text-xs text-rpi-gray/60 uppercase font-medium">Trámites Activos</p>

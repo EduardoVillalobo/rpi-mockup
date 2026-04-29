@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FileText, Search, ArrowDownToDot, Percent, Building2, Calendar, CheckCircle2, FileBadge, FileDigit, Plus, MapPin } from 'lucide-react'
+import { FileText, Search, ArrowDownToDot, Percent, Building2, Calendar, CheckCircle2, FileBadge, FileDigit, Plus, MapPin, Signature } from 'lucide-react'
 
 type Nomenclatura = {
   departamento?: string
@@ -245,17 +245,7 @@ export default function Visor360() {
               )}
 
 
-              {folioData?.gravamenes && folioData.gravamenes.length > 0 && (
-                <div className="mt-6 pt-6 border-t border-rpi-gray/100">
-                  <h3 className="text-sm font-semibold text-red-800 mb-3">Gravamenes</h3>
-                  {folioData.gravamenes.map((gravamen, index) => (
-                    <div key={index} className="mb-2">
-                      <p className="text-xs text-gray-500">{index + 1}</p>
-                      <p className="text-xs text-red-700">{gravamen.texto || gravamen.tipo_procedimiento || ''}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
+
 
               {folioData?.cancelaciones && folioData.cancelaciones.length > 0 && (
                 <div className="mt-6 pt-6 border-t border-rpi-gray/100">
@@ -406,99 +396,138 @@ export default function Visor360() {
               </div>
 
               {/* Lista de asientos */}
-              {folioData?.titularidad_dominio?.map((asiento, index) => (
-                <div key={index} className="relative max-w-4xl mx-auto my-12 font-sans">
-                  <div
-                    className="absolute -top-6 right-8 z-50 flex items-center bg-white border border-slate-300 shadow-xl rounded-lg p-1.5 gap-1">
+              <div className=" gap-8 mt-6 pt-6 border-t border-rpi-gray/100">
+                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <Signature className="w-5 h-5 text-blue-600" />
+                  Asientos Registrales
+                </h3>
+              </div>
+              <div className="grid grid-cols-[2fr_1fr_1fr] gap-4">
 
-                    <div className="group relative">
-                      <button className="p-2 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-md transition-all">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                        </svg>
-                      </button>
-                      <span
-                        className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-slate-800 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
-                        Editar Asiento
-                      </span>
-                    </div>
+                {/* Columna Titularidad de Dominio */}
+                <div className="space-y-4">
 
-                    <div className="w-px h-6 bg-slate-200 mx-1"></div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    Titularidad de Dominio
+                  </h4>
+                  {folioData?.titularidad_dominio?.map((asiento, index) => (
+                    <div key={index} className="relative max-w-4xl mx-auto my-12 font-sans">
+                      <div
+                        className="absolute -top-6 right-8 z-50 flex items-center bg-white border border-slate-300 shadow-xl rounded-lg p-1.5 gap-1">
 
-                    <div className="group relative">
-                      <button className="p-2 hover:bg-green-100 text-slate-600 hover:text-green-700 rounded-md transition-all">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                        </svg>
-                      </button>
-                      <span
-                        className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-slate-800 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
-                        Asentar en Folio
-                      </span>
-                    </div>
-
-                    <div className="w-px h-6 bg-slate-200 mx-1"></div>
-
-                    <div className="group relative">
-                      <button className="p-2 hover:bg-red-100 text-slate-600 hover:text-red-600 rounded-md transition-all">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                        </svg>
-                      </button>
-                      <span
-                        className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-red-600 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
-                        Eliminar Registro
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="bg-white rounded-[1rem] shadow-lg border border-slate-200 overflow-hidden py-5">
-                    <div className="p-5">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-rpi-blue/10 to-blue-500/10 rounded-lg flex items-center justify-center group-hover:from-rpi-blue/20 group-hover:to-blue-500/20 transition-colors">
-                          <span className="text-xs font-bold text-rpi-blue">#{index + 1}</span>
+                        <div className="group relative">
+                          <button className="p-2 hover:bg-blue-100 text-slate-600 hover:text-blue-700 rounded-md transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                          </button>
+                          <span
+                            className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-slate-800 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
+                            Editar Asiento
+                          </span>
                         </div>
-                        <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100 flex-1">
-                          <p className="text-sm text-slate-700 leading-relaxed">{asiento?.texto || asiento.tipo_procedimiento || 'Asiento registral'}</p>
-                          <p className="text-xs text-rpi-gray/600">{asiento?.tipo_procedimiento || asiento?.texto?.substring(0, 50) || 'Asiento'}</p>
+
+                        <div className="w-px h-6 bg-slate-200 mx-1"></div>
+
+                        <div className="group relative">
+                          <button className="p-2 hover:bg-green-100 text-slate-600 hover:text-green-700 rounded-md transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                          </button>
+                          <span
+                            className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-slate-800 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
+                            Asentar en Folio
+                          </span>
+                        </div>
+
+                        <div className="w-px h-6 bg-slate-200 mx-1"></div>
+
+                        <div className="group relative">
+                          <button className="p-2 hover:bg-red-100 text-slate-600 hover:text-red-600 rounded-md transition-all">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                              stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                            </svg>
+                          </button>
+                          <span
+                            className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 hidden group-hover:block bg-red-600 text-white text-[10px] py-1 px-2 rounded shadow-lg whitespace-nowrap">
+                            Eliminar Registro
+                          </span>
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-2 gap-4">
-                        {/* Proporción */}
-                        <div className="space-y-2">
-                          <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Proporción</label>
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2">
-                              <Percent className="w-4 h-4 text-rpi-blue" />
-                              <span className="text-lg font-bold text-rpi-blue">{asiento?.proporcion || '100%'}</span>
+                      <div className="bg-white rounded-[1rem] shadow-lg border border-slate-200 overflow-hidden py-5">
+                        <div className="p-5">
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className="w-8 h-8 bg-gradient-to-br from-rpi-blue/10 to-blue-500/10 rounded-lg flex items-center justify-center group-hover:from-rpi-blue/20 group-hover:to-blue-500/20 transition-colors">
+                              <span className="text-xs font-bold text-rpi-blue">#{index + 1}</span>
+                            </div>
+                            <div className="bg-blue-50/50 p-4 rounded-lg border border-blue-100 flex-1">
+                              <p className="text-sm text-slate-700 leading-relaxed">{asiento?.texto || asiento.tipo_procedimiento || 'Asiento registral'}</p>
+                              <p className="text-xs text-rpi-gray/600">{asiento?.tipo_procedimiento || asiento?.texto?.substring(0, 50) || 'Asiento'}</p>
                             </div>
                           </div>
-                          <div className="w-full bg-gradient-to-r from-rpi-gray/30 to-rpi-gray/20 rounded-full h-2 overflow-hidden">
-                            <div className="bg-gradient-to-r from-rpi-blue to-blue-600 h-2 rounded-full transition-all shadow-inner" style={{ width: '100%' }}></div>
-                          </div>
-                        </div>
 
-                        {/* Fecha */}
-                        <div className="space-y-2">
-                          <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Fecha de Inscripción</label>
-                          <div className="flex items-center gap-2">
-                            <Calendar className="w-4 h-4 text-rpi-blue" />
-                            <span className="text-sm font-medium text-gray-700">{new Date().toLocaleDateString()}</span>
+                          <div className="grid grid-cols-2 gap-4">
+                            {/* Proporción */}
+                            <div className="space-y-2">
+                              <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Proporción</label>
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                  <Percent className="w-4 h-4 text-rpi-blue" />
+                                  <span className="text-lg font-bold text-rpi-blue">{asiento?.proporcion || '100%'}</span>
+                                </div>
+                              </div>
+                              <div className="w-full bg-gradient-to-r from-rpi-gray/30 to-rpi-gray/20 rounded-full h-2 overflow-hidden">
+                                <div className="bg-gradient-to-r from-rpi-blue to-blue-600 h-2 rounded-full transition-all shadow-inner" style={{ width: '100%' }}></div>
+                              </div>
+                            </div>
+
+                            {/* Fecha */}
+                            <div className="space-y-2">
+                              <label className="text-xs text-rpi-gray/500 uppercase tracking-wide block">Fecha de Inscripción</label>
+                              <div className="flex items-center gap-2">
+                                <Calendar className="w-4 h-4 text-rpi-blue" />
+                                <span className="text-sm font-medium text-gray-700">{new Date().toLocaleDateString()}</span>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
-              ))}
+                  ))}
+                </div>
+                {/* Columnda Gravamenes */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    Gravámenes, Restric. e Interdicciones
+                  </h4>
+                  {folioData?.gravamenes && folioData.gravamenes.length > 0 && (
+                    <div className="mt-6 pt-6 border-t border-rpi-gray/100">
+                      <h3 className="text-sm font-semibold text-red-800 mb-3">Gravamenes</h3>
+                      {folioData.gravamenes.map((gravamen, index) => (
+                        <div key={index} className="mb-2">
+                          <p className="text-xs text-gray-500">{index + 1}</p>
+                          <p className="text-xs text-red-700">{gravamen.texto || gravamen.tipo_procedimiento || ''}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                {/* Columna Cancelaciones */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    Cancelaciones
+                  </h4>
+                </div>
+              </div>
 
               {/* Observaciones */}
               {folioData?.observaciones && (

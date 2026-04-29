@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LayoutDashboard, FileText, Settings, File, Library, ArrowRight, FileCheck2, Archive, FileCheck, LogOut, ScanText } from 'lucide-react'
+import { LayoutDashboard, FileText, ChevronFirst, ChevronLast, File, Library, ArrowRight, Archive, FileCheck, LogOut, ScanText } from 'lucide-react'
 import logo from '../assets/rp-Logo-nuevo.png'
 
 interface SidebarProps {
@@ -8,6 +8,7 @@ interface SidebarProps {
 
 function Sidebar({ onLogout }: SidebarProps) {
   const [activePath, setActivePath] = useState('')
+  const [isCollapsed, setIsCollapsed] = useState(false)
 
   useEffect(() => {
     // Actualizar activePath cada vez que cambia la ruta
@@ -67,6 +68,11 @@ function Sidebar({ onLogout }: SidebarProps) {
           </div>
         </div>
         <p className="text-xs text-rpi-gray/50 ml-1">Sistema de Folio Digital</p>
+        <button className="mt-2 w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-rpi-blue hover:bg-rpi-blue/10 transition-colors"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+        >
+          <ChevronFirst className={`w-4 h-4 transition-transform ${isCollapsed ? 'rotate-180' : ''}`} />
+        </button>
       </div>
 
       {/* Navegación */}
@@ -76,14 +82,12 @@ function Sidebar({ onLogout }: SidebarProps) {
             <a
               key={item.path}
               href={item.path}
-              className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${
-                item.path === '/dashboard' ? 'shadow-sm' : ''
-              } ${getBgColor(item.path)}`}
+              className={`flex items-center justify-between gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group ${item.path === '/dashboard' ? 'shadow-sm' : ''
+                } ${getBgColor(item.path)}`}
             >
               <div className="flex items-center gap-3 flex-1">
-                <div className={`p-1.5 rounded-lg transition-colors ${
-                  isActive(item.path) ? getBgColor(item.path) : ''
-                }`}>
+                <div className={`p-1.5 rounded-lg transition-colors ${isActive(item.path) ? getBgColor(item.path) : ''
+                  }`}>
                   <item.icon className={`w-5 h-5 ${getIconColor(item.path)} transition-colors`} />
                 </div>
                 <span className={`text-sm font-medium ${isActive(item.path) ? 'text-white' : 'text-gray-700 group-hover:text-gray-900'} transition-colors`}>
